@@ -12,8 +12,8 @@ package asteroids.asteroids;
 public abstract class Element {
     
     private double rotation;
-    private Vector speed;
-    private Vector position;
+    private Vector speed; // coordinates to be added to the element after a rotation in the game loop
+    private Vector position; // initial position of the element
     private double radius; // within this radius the element experiences impact
     
     public Element(Vector position, Vector speed, double radius) {
@@ -41,6 +41,10 @@ public abstract class Element {
     
     public void turn(double a) {
         this.rotation += a;
+    }
+    
+    public double getRotation() {
+        return this.rotation;
     }
     
 }

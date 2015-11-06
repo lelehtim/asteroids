@@ -22,9 +22,28 @@ public class Vector {
         this.y = y;
     }
     
-    public Vector sum(Vector vector) {
-        this.x += vector.x;
+    public Vector(double direction) {
+        this.x = Math.cos(direction);
+        this.y = Math.sin(direction);
+    }
+    
+    public Vector adjust(double speed) {
+        this.x = this.x*speed;
+        this.y = this.y*speed;
+        return this;
+    }
+    
+    public Vector sum(Vector vector) { // will be used to calculate the location of an element after 
+        this.x += vector.x;             // a rotation in a game loop
         this.y += vector.y;
         return this;
+    }
+    
+    public double getxCoordinate(Vector v) {
+        return v.x;
+    }
+    
+    public double getyCoordinate(Vector v) {
+        return v.y;
     }
 }

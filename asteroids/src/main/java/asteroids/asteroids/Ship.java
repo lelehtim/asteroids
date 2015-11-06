@@ -18,6 +18,7 @@ public class Ship extends Element {
         // first vector needs to be adjusted to the center of the screen and the radius to be corrected
         super(new Vector(0.0,0.0), new Vector(0.0,0.0),10.0);
         
+        
     }
     
 }
