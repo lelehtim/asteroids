@@ -15,15 +15,29 @@ import java.awt.Graphics2D;
 public abstract class Element {
     
     private double rotation;
-    private Vector speed; // coordinates to be added to the element after a rotation in the game loop
-    private Vector position; // initial position of the element
+    Vector speed; // coordinates to be added to the element after a rotation in the game loop
+    Vector position; // initial position of the element
     private double radius; // within this radius the element experiences impact
+    private boolean status;
     
     public Element(Vector position, Vector speed, double radius) {
         this.position = position;
         this.speed = speed;
         this.radius = radius;
         this.rotation = 0;
+        this.status = false;
+    }
+    
+    public void setStatusToFalse() {
+        status = false;
+    }
+    
+    public void setStatusToTrue() {
+        status = true;
+    }
+    
+    public boolean getStatus() {
+        return status;
     }
     
     public Vector getPosition() {
@@ -35,7 +49,8 @@ public abstract class Element {
     }
     
     public void refresh() {  // parameter value passed to be checked
-        this.position = this.position.sum(speed);
+        position.sum(speed);
+        
     }
     
     public double getRadius() {

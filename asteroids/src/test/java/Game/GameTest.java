@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asteroids.asteroids;
+package Game;
 
+/**
+ *
+ * @author Lauri
+ */
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,34 +16,17 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Lauri
- */
-public class mainTest {
-    
-    public mainTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+public class GameTest {
+    Game game;
+
     @Before
     public void setUp() {
+        game = new Game();
     }
     
-    @After
-    public void tearDown() {
+    public void testRefresh() {
+        
     }
-
-    /**
-     * Test of main method, of class main.
-     */
-   
+    
     
 }

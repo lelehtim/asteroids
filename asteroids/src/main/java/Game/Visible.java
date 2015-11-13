@@ -32,7 +32,7 @@ public class Visible extends JPanel {
         g = (Graphics2D) graphics;
         g.setColor(Color.RED);
         
-        while(i < game.list.size()) {
+       while(i < game.list.size()) {
             paintElement(game.list.get(i));
             i++;
         }

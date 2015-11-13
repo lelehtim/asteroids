@@ -6,3 +6,12 @@
 
 6.11
 12h käytetty asioiden javan perusteiden kertaukseen, koodaukseen ja ohjelman suunnitteluun
+
+10.11
+1.5h koodausta
+
+11.11
+1.5h koodausta
+
+13.11
+6h koodausta

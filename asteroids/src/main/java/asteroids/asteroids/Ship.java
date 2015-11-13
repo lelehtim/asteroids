@@ -19,15 +19,21 @@ public class Ship extends Element {
     private boolean turnright;
     private boolean accelerate;
     private boolean shoot;
+    private boolean exists;
     
     public Ship() {
         // first vector needs to be adjusted to the center of the screen and the radius to be corrected
-        super(new Vector(0.0,0.0), new Vector(0.0,0.0),10.0);
+        super(new Vector(100.0,100.0), new Vector(0.0,0.0),10.0);
         turnleft = false;
         turnright = false;
         accelerate = false;
         shoot = false;
+        exists = true;
         
+    }
+    
+    public boolean exists() {
+        return exists;
     }
     
     public void accelerate() {
@@ -63,6 +69,6 @@ public class Ship extends Element {
     
     @Override
     public void draw(Graphics2D g, Game game) {
-        g.drawRect(0, 0, 20, 20);
+        g.drawRect((int)this.getPosition().x,(int) this.getPosition().y, 20, 20);
     }
 }

@@ -42,11 +42,11 @@ public class ElementTest {
     /**
      * Test of getPosition method, of class Element.
      */
-    @Test
-    public void testGetPosition() {
-        assertTrue(s.getPosition().x == 0.0);
-        assertTrue(s.getPosition().y == 0.0);
-    }
+//    @Test
+//    public void testGetPosition() {
+//        assertTrue(s.getPosition().x == 0.0);
+//        assertTrue(s.getPosition().y == 0.0);
+//    }
 
     /**
      * Test of getSpeed method, of class Element.
@@ -62,7 +62,10 @@ public class ElementTest {
      */
     @Test
     public void testRefresh() {
-        
+        Vector v = new Vector(s.position.x+s.speed.x, s.position.y+s.speed.y);
+        s.refresh();
+        assertTrue(v.x == s.position.x);
+        assertTrue(v.y == s.position.y);
     }
 
     /**
