@@ -9,6 +9,9 @@ package asteroids.asteroids;
  *
  * @author Lauri
  */
+import Game.Game;
+import java.awt.Graphics2D;
+
 public abstract class Element {
     
     private double rotation;
@@ -46,5 +49,7 @@ public abstract class Element {
     public double getRotation() {
         return this.rotation;
     }
+    
+    public abstract void draw(Graphics2D g, Game game);
     
 }
