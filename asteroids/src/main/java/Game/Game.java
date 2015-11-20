@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class Game extends JFrame {
     
     Iterator<Element> iterator;
-    ArrayList<Element> list;
+    public ArrayList<Element> list;
     Graphics2D g;
     Visible v;
     Ship ship;

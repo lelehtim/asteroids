@@ -13,6 +13,10 @@ import asteroids.asteroids.Ship;
  *
  * @author Lauri
  */
+
+/**
+ * overrides the methods defined for keyAdapter for listening the commands given by the player
+ */
 public class Listener extends KeyAdapter {
     
     Ship ship;

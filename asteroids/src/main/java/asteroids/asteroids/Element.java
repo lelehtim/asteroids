@@ -12,9 +12,13 @@ package asteroids.asteroids;
 import Game.Game;
 import java.awt.Graphics2D;
 
+/**
+ * class represents the elements which are needed in the game
+ */
+
 public abstract class Element {
     
-    private double rotation;
+    public double rotation;
     Vector speed; // coordinates to be added to the element after a rotation in the game loop
     Vector position; // initial position of the element
     private double radius; // within this radius the element experiences impact
@@ -48,7 +52,12 @@ public abstract class Element {
         return speed;
     }
     
-    public void refresh() {  // parameter value passed to be checked
+    /**
+     * method updates the state of the element
+     * @param game is the JFrame instance 
+     */
+    
+    public void refresh(Game game) {  
         position.sum(speed);
         
     }
@@ -57,6 +66,11 @@ public abstract class Element {
         return radius;
     }
     
+    /**
+     * rotates the element
+     * @param a 
+     */
+    
     public void turn(double a) {
         this.rotation += a;
     }
@@ -64,6 +78,13 @@ public abstract class Element {
     public double getRotation() {
         return this.rotation;
     }
+    
+    /**
+     * handles the drawing of the elements
+     * @param g
+     * @param game
+     * 
+     */
     
     public abstract void draw(Graphics2D g, Game game);
     

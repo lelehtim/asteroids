@@ -46,4 +46,18 @@ public class Vector {
     public double getyCoordinate(Vector v) {
         return v.y;
     }
+    
+    public double getSquaredLength() {
+        return (x*x + y*y);
+    }
+    
+    public Vector makeLengthOne() {
+        double length = getSquaredLength();
+        if (length != 0.0f && length != 1.0f) {
+            length = Math.sqrt(length);
+            x = x/length;
+            y = y/length;
+        }
+        return this;
+    }
 }

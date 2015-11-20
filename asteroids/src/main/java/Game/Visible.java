@@ -17,6 +17,10 @@ import java.awt.RenderingHints;
  *
  * @author Lauri
  */
+
+/**
+ * Visible class is responsible for showing the game for the player
+ */
 public class Visible extends JPanel {
     
     Game game;
@@ -37,7 +41,8 @@ public class Visible extends JPanel {
         AffineTransform transform = g.getTransform();
         
        while(i < game.list.size()) {
-            paintElement(g, game.list.get(i), game.list.get(i).getPosition().x, game.list.get(i).getPosition().y);
+           Vector vec = game.list.get(i).getPosition();
+            paintElement(g, game.list.get(i), vec.x, vec.y);
             g.setTransform(transform);
             i++;
         }
@@ -47,7 +52,7 @@ public class Visible extends JPanel {
     public void paintElement(Graphics2D g, Element e, double x, double y) {
         System.out.println(""+x+" "+y);
         g.translate(x, y);
-        //g.rotate(e.getRotation());
+        g.rotate(e.getRotation());
         e.draw(g, game);
     }
 }

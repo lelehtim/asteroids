@@ -13,19 +13,19 @@ import Game.Game;
 import java.awt.Graphics2D;
 
 public class Ship extends Element {
-    static final double ROTATION = Math.PI / 1.5;
-    static final double ACCELERATION = 0.2;
+    static final double ROTATION = -Math.PI / 2.0;
+    static final double ROTATION_SPEED = 0.000002;
+    static final double MAXVELOCITY = 5.0;
+    static final double THRUST = 0.02;
     private boolean turnleft;
     private boolean turnright;
     private boolean accelerate;
     private boolean shoot;
     private boolean exists;
-    Vector position;
-    Vector speed;
     
     public Ship() {
-        // first vector needs to be adjusted to the center of the screen and the radius to be corrected
         super(new Vector(300.0,300.0), new Vector(0.0,0.0),10.0);
+        this.rotation = ROTATION;
         turnleft = false;
         turnright = false;
         accelerate = false;
@@ -41,12 +41,6 @@ public class Ship extends Element {
     
     public void accelerate(Boolean b) {
         accelerate = b;
-        if (b) {
-            this.speed = new Vector(1.0,1.0);
-        }
-        if (!b) {
-            this.speed = new Vector(0.0,0.0);
-        }
     }
     
     public void turnleft(Boolean b) {
@@ -68,7 +62,7 @@ public class Ship extends Element {
     public boolean getShoot() {
         return shoot;
     }
-    public boolean getTrunLeft() {
+    public boolean getTurnLeft() {
         return turnleft;
     }
     
@@ -77,9 +71,34 @@ public class Ship extends Element {
     }
     
     @Override
+    public void refresh(Game g) {
+        super.refresh(g);
+        if (getAcceleration()) {
+            speed.sum(new Vector(rotation).adjust(THRUST));
+            
+            if (speed.getSquaredLength() >= MAXVELOCITY*MAXVELOCITY) {
+                speed.makeLengthOne().adjust(MAXVELOCITY);
+            }
+        }
+        if (speed.getSquaredLength() != 0.0) {
+            speed.adjust(0.002);
+        }
+        
+        if (getTurnRight()) {
+            turn(ROTATION_SPEED);
+        }
+        if (getTurnLeft()) {
+            turn(-ROTATION_SPEED);
+        }
+    }
+    
+    @Override
     public void draw(Graphics2D g, Game game) {
-        int x[]={300,310,290};
-        int y[]={290,310,310};
-        g.drawPolygon(x,y,3);
+//        int x[]={300,310,290};
+//        int y[]={290,310,310};
+//        g.drawPolygon(x,y,3);
+        g.drawLine(-10, -8, 10, 0);
+	g.drawLine(-10, 8, 10, 0);
+	g.drawLine(-6, -6, -6, 6);
     }
 }

@@ -11,12 +11,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import Game.Game;
 /**
  *
  * @author Lauri
  */
 public class ElementTest {
     Ship s;
+    Game g;
     
     public ElementTest() {
     }
@@ -31,6 +33,7 @@ public class ElementTest {
     
     @Before
     public void setUp() {
+        g = new Game();
         s = new Ship();
         
     }
@@ -63,7 +66,7 @@ public class ElementTest {
     @Test
     public void testRefresh() {
         Vector v = new Vector(s.position.x+s.speed.x, s.position.y+s.speed.y);
-        s.refresh();
+        s.refresh(g);
         assertTrue(v.x == s.position.x);
         assertTrue(v.y == s.position.y);
     }
