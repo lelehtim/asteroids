@@ -15,3 +15,9 @@
 
 13.11
 6h koodausta
+
+16.11
+5h koodausta
+
+20.11
+6h koodausta

@@ -24,6 +24,11 @@ public class Listener extends KeyAdapter {
     public Listener(Ship ship) {
         this.ship = ship;
     }
+    
+    /**
+     * 
+     * @param e 
+     */
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -46,6 +51,11 @@ public class Listener extends KeyAdapter {
                 
         }
     }
+    
+    /**
+     * 
+     * @param e 
+     */
 
     @Override
     public void keyReleased(KeyEvent e) {

@@ -31,6 +31,10 @@ public class Visible extends JPanel {
         
     }
     
+    /**
+     * @param graphics
+     */
+    
     @Override
     protected void paintComponent(Graphics graphics) {
         int i = 0;
@@ -48,6 +52,14 @@ public class Visible extends JPanel {
         }
         
     }
+    
+    /**
+     * paints an element on the window
+     * @param g
+     * @param e
+     * @param x
+     * @param y 
+     */
     
     public void paintElement(Graphics2D g, Element e, double x, double y) {
         System.out.println(""+x+" "+y);

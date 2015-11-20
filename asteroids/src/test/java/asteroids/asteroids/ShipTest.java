@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  * @author Lauri
  */
 public class ShipTest {
+    Ship s;
     
     public ShipTest() {
     }
@@ -31,10 +32,35 @@ public class ShipTest {
     
     @Before
     public void setUp() {
+        s = new Ship();
     }
     
     @After
     public void tearDown() {
+    }
+    
+    @Test
+    public void testAccelerate() {
+        s.accelerate(true);
+        assertTrue(true == s.getAcceleration());
+    }
+    
+    @Test
+    public void testShoot() {
+        s.shoot(true);
+        assertTrue(true == s.getShoot());
+    }
+    
+    @Test
+    public void testTurnLeft() {
+        s.turnleft(true);
+        assertTrue(true == s.getTurnLeft());
+    }
+    
+    @Test
+    public void testTurnRight() {
+        s.turnright(true);
+        assertTrue(true == s.getTurnRight());
     }
 
     

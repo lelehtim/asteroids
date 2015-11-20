@@ -39,17 +39,37 @@ public class Ship extends Element {
         return exists;
     }
     
+    /**
+     * change the value of accelerate to b
+     * @param b 
+     */
+    
     public void accelerate(Boolean b) {
         accelerate = b;
     }
+    
+    /**
+     * change value of turnleht to b
+     * @param b 
+     */
     
     public void turnleft(Boolean b) {
         turnleft = b;
     }
     
+    /**
+     * change value of turnright to b
+     * @param b 
+     */
+    
     public void turnright(Boolean b) {
         turnright = b;
     }
+    
+    /**
+     * change value of shoot to b
+     * @param b 
+     */
     
     public void shoot(Boolean b) {
         shoot = b;
@@ -69,6 +89,11 @@ public class Ship extends Element {
     public boolean getTurnRight() {
         return turnright;
     }
+    
+    /**
+     * update the status of the ship
+     * @param g 
+     */
     
     @Override
     public void refresh(Game g) {
@@ -91,6 +116,12 @@ public class Ship extends Element {
             turn(-ROTATION_SPEED);
         }
     }
+    
+    /**
+     * draw ship
+     * @param g
+     * @param game 
+     */
     
     @Override
     public void draw(Graphics2D g, Game game) {

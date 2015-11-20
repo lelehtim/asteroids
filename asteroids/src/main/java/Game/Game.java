@@ -64,6 +64,10 @@ public class Game extends JFrame {
         setVisible(true);
     }
     
+    /**
+     * updates the state of the element in the game
+     */
+    
     public void refresh() {
         int i = 0;
         while (i < list.size()) {

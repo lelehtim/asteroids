@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  */
 public class VectorTest {
     Vector v;
+    Vector v1;
     Vector s;
     Vector sumVector;
     Vector vecToBeAdjusted;
@@ -37,6 +38,7 @@ public class VectorTest {
     @Before
     public void setUp() {
         v = new Vector(0.5, 0.5);
+        v1 = new Vector(0.5,0.5);
         s = new Vector(0.7, 0.4);
         vecToBeAdjusted = new Vector(0.5);
         vecAdjusted = new Vector(0.5);
@@ -68,4 +70,18 @@ public class VectorTest {
         assertTrue(vecAdjusted.y == vecToBeAdjusted.y);
 
 }
+    
+    @Test
+    public void testGetSquaredLength() {
+        double len = v.getSquaredLength();
+        assertTrue((v.x * v.x + v.y * v.y) == len);
+    }
+    
+    @Test
+    public void makeLengthOne() {
+        double len = Math.sqrt(v.x*v.x+v.y*v.y);
+        v.makeLengthOne();
+        assertTrue(v.x == v1.x/len);
+        assertTrue(v.y == v1.y/len);
+    }
 }

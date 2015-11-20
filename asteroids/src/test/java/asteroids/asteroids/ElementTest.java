@@ -84,8 +84,9 @@ public class ElementTest {
      */
     @Test
     public void testTurn() {
+        double a = s.getRotation();
         s.turn(0.5);
-        assertTrue(0.5 == s.getRotation());
+        assertTrue(a+0.5 == s.getRotation());
     }
     
 }

@@ -27,11 +27,23 @@ public class Vector {
         this.y = Math.sin(direction);
     }
     
+    /** 
+     * 
+     * @param speed
+     * @return adjusted Vector
+     */
+    
     public Vector adjust(double speed) {
         this.x = this.x*speed;
         this.y = this.y*speed;
         return this;
     }
+    
+    /**
+     * 
+     * @param vector
+     * @return sum Vector
+     */
     
     public Vector sum(Vector vector) { // will be used to calculate the location of an element after 
         this.x += vector.x;             // a rotation in a game loop
@@ -51,9 +63,14 @@ public class Vector {
         return (x*x + y*y);
     }
     
+    /**
+     * adjust the vector length to one
+     * @return Vector
+     */
+    
     public Vector makeLengthOne() {
         double length = getSquaredLength();
-        if (length != 0.0f && length != 1.0f) {
+        if (length != 0.0 && length != 1.0) {
             length = Math.sqrt(length);
             x = x/length;
             y = y/length;
