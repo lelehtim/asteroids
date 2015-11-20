@@ -14,21 +14,24 @@ import java.awt.Graphics2D;
 
 public class Ship extends Element {
     static final double ROTATION = Math.PI / 1.5;
-    static final double ACCELARATION = 0.2;
+    static final double ACCELERATION = 0.2;
     private boolean turnleft;
     private boolean turnright;
     private boolean accelerate;
     private boolean shoot;
     private boolean exists;
+    Vector position;
+    Vector speed;
     
     public Ship() {
         // first vector needs to be adjusted to the center of the screen and the radius to be corrected
-        super(new Vector(100.0,100.0), new Vector(0.0,0.0),10.0);
+        super(new Vector(300.0,300.0), new Vector(0.0,0.0),10.0);
         turnleft = false;
         turnright = false;
         accelerate = false;
         shoot = false;
         exists = true;
+        
         
     }
     
@@ -36,20 +39,26 @@ public class Ship extends Element {
         return exists;
     }
     
-    public void accelerate() {
-        accelerate = true;
+    public void accelerate(Boolean b) {
+        accelerate = b;
+        if (b) {
+            this.speed = new Vector(1.0,1.0);
+        }
+        if (!b) {
+            this.speed = new Vector(0.0,0.0);
+        }
     }
     
-    public void turnleft() {
-        turnleft = true;
+    public void turnleft(Boolean b) {
+        turnleft = b;
     }
     
-    public void turnright() {
-        turnright = true;
+    public void turnright(Boolean b) {
+        turnright = b;
     }
     
-    public void shoot() {
-        shoot = true;
+    public void shoot(Boolean b) {
+        shoot = b;
     }
     
     public boolean getAcceleration() {
@@ -69,6 +78,8 @@ public class Ship extends Element {
     
     @Override
     public void draw(Graphics2D g, Game game) {
-        g.drawRect((int)this.getPosition().x,(int) this.getPosition().y, 20, 20);
+        int x[]={300,310,290};
+        int y[]={290,310,310};
+        g.drawPolygon(x,y,3);
     }
 }

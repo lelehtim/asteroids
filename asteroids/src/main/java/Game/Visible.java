@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import asteroids.asteroids.*;
+import java.awt.geom.AffineTransform;
+import java.awt.RenderingHints;
 
 /**
  *
@@ -18,7 +20,7 @@ import asteroids.asteroids.*;
 public class Visible extends JPanel {
     
     Game game;
-    Graphics2D g;
+    
     public Visible(Game game) {
         super.setBackground(Color.BLACK);
         this.game = game;
@@ -29,17 +31,23 @@ public class Visible extends JPanel {
     protected void paintComponent(Graphics graphics) {
         int i = 0;
         super.paintComponent(graphics);
-        g = (Graphics2D) graphics;
+        Graphics2D g = (Graphics2D) graphics;
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.setColor(Color.RED);
+        AffineTransform transform = g.getTransform();
         
        while(i < game.list.size()) {
-            paintElement(game.list.get(i));
+            paintElement(g, game.list.get(i), game.list.get(i).getPosition().x, game.list.get(i).getPosition().y);
+            g.setTransform(transform);
             i++;
         }
         
     }
     
-    public void paintElement(Element e) {
+    public void paintElement(Graphics2D g, Element e, double x, double y) {
+        System.out.println(""+x+" "+y);
+        g.translate(x, y);
+        //g.rotate(e.getRotation());
         e.draw(g, game);
     }
 }

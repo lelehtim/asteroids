@@ -13,9 +13,9 @@ package asteroids.asteroids;
 
 public class Vector {
     
-    double x; // x coordinate of a vector
+    public double x; // x coordinate of a vector
     
-    double y; // y coordinate of vector
+    public double y; // y coordinate of vector
     
     public Vector(double x, double y){
         this.x = x;

@@ -17,6 +17,11 @@ import java.awt.Graphics2D;
 import java.util.Iterator;
 import java.util.ArrayList;
 
+/**
+ * class is responsible for creating the instances
+ * loop which is responsible for runing the game is in this class
+ */
+
 public class Game extends JFrame {
     
     Iterator<Element> iterator;
@@ -24,6 +29,7 @@ public class Game extends JFrame {
     Graphics2D g;
     Visible v;
     Ship ship;
+    Listener l;
     
     public Game() {
         setLayout(new BorderLayout());
@@ -32,16 +38,19 @@ public class Game extends JFrame {
         v = new Visible(this);
         add(v, BorderLayout.CENTER);
         ship = new Ship();
-        Bullet b = new Bullet(ship,0.1);
+        //Bullet b = new Bullet(ship,0.1);
         ship.setStatusToTrue();
         list = new ArrayList();
         list.add(ship);
-        list.add(b);
+       // list.add(b);
         iterator = list.iterator();
+        l = new Listener(ship);
+        
+        this.addKeyListener(l);
     }
     
     public void run() {
-        //this.initialize();
+        this.initialize();
         while(true) {
             refresh();
             v.repaint();
@@ -49,7 +58,7 @@ public class Game extends JFrame {
     }
     
     public void initialize() {
-        setSize(500,500);
+        setSize(600,600);
         setLocationRelativeTo(null);
         setBackground(Color.BLACK);
         setVisible(true);
@@ -58,7 +67,7 @@ public class Game extends JFrame {
     public void refresh() {
         int i = 0;
         while (i < list.size()) {
-            list.get(i).refresh();
+            list.get(i).refresh(this);
             i++;
         }
 //        while (iterator.hasNext()) {
