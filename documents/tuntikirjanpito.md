@@ -21,3 +21,9 @@
 
 20.11
 6h koodausta
+
+25.11
+20 min käytetty sekvenssikaavioihin
+
+27.11
+6h koodausta

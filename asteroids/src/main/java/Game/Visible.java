@@ -31,9 +31,7 @@ public class Visible extends JPanel {
         
     }
     
-    /**
-     * @param graphics
-     */
+    
     
     @Override
     protected void paintComponent(Graphics graphics) {
@@ -56,13 +54,12 @@ public class Visible extends JPanel {
     /**
      * paints an element on the window
      * @param g
-     * @param e
-     * @param x
-     * @param y 
+     * @param e element
+     * @param x coordinate of the position vector of the element
+     * @param y coordinate of the position vector of the element
      */
     
     public void paintElement(Graphics2D g, Element e, double x, double y) {
-        System.out.println(""+x+" "+y);
         g.translate(x, y);
         g.rotate(e.getRotation());
         e.draw(g, game);

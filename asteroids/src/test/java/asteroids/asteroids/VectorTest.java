@@ -78,7 +78,7 @@ public class VectorTest {
     }
     
     @Test
-    public void makeLengthOne() {
+    public void testMakeLengthOne() {
         double len = Math.sqrt(v.x*v.x+v.y*v.y);
         v.makeLengthOne();
         assertTrue(v.x == v1.x/len);

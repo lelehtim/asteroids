@@ -21,15 +21,16 @@ public abstract class Element {
     public double rotation;
     Vector speed; // coordinates to be added to the element after a rotation in the game loop
     Vector position; // initial position of the element
-    private double radius; // within this radius the element experiences impact
-    private boolean status;
+    public double radius; // within this radius the element experiences impact
+    public boolean status; // if status is false, element needs to be removed
+    public int type;
     
     public Element(Vector position, Vector speed, double radius) {
         this.position = position;
         this.speed = speed;
         this.radius = radius;
         this.rotation = 0;
-        this.status = false;
+        this.status = true;
     }
     
     public void setStatusToFalse() {
@@ -54,11 +55,25 @@ public abstract class Element {
     
     /**
      * method updates the state of the element
+     * if the coordinates of the element are out of bounds it will be moved to the opposite side of the screen
      * @param game is the JFrame instance 
      */
     
     public void refresh(Game game) {  
         position.sum(speed);
+        
+        if (position.x >= 600) {
+            position.x = 1;
+        }
+        if (position.y >= 600) {
+            position.y = 1;
+        }
+        if (position.x <= 0) {
+            position.x = 599;
+        }
+        if (position.y <= 0) {
+            position.y = 599;
+        }
         
     }
     
@@ -68,7 +83,7 @@ public abstract class Element {
     
     /**
      * rotates the element
-     * @param a 
+     * @param a is the default rotation
      */
     
     public void turn(double a) {
@@ -87,5 +102,12 @@ public abstract class Element {
      */
     
     public abstract void draw(Graphics2D g, Game game);
+    
+    /**
+     * method handles the situation where two Elements collide
+     * @param game is the Game instance
+     */
+    
+    public abstract void takeCareOfImpact(Game game);
     
 }

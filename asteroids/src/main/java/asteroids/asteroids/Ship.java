@@ -12,16 +12,21 @@ package asteroids.asteroids;
 import Game.Game;
 import java.awt.Graphics2D;
 
+/**
+ * this class represents the space ship controlled by the player
+ */
+
 public class Ship extends Element {
     static final double ROTATION = -Math.PI / 2.0;
-    static final double ROTATION_SPEED = 0.000002;
-    static final double MAXVELOCITY = 5.0;
-    static final double THRUST = 0.02;
+    static final double ROTATION_SPEED = 0.1;
+    static final double MAXVELOCITY = 8.0;
+    static final double THRUST = 0.5;
     private boolean turnleft;
     private boolean turnright;
     private boolean accelerate;
     private boolean shoot;
-    private boolean exists;
+    private boolean hasBeenShot;
+    
     
     public Ship() {
         super(new Vector(300.0,300.0), new Vector(0.0,0.0),10.0);
@@ -30,14 +35,11 @@ public class Ship extends Element {
         turnright = false;
         accelerate = false;
         shoot = false;
-        exists = true;
-        
+        hasBeenShot = false;
+        this.type = 3;
         
     }
     
-    public boolean exists() {
-        return exists;
-    }
     
     /**
      * change the value of accelerate to b
@@ -90,6 +92,7 @@ public class Ship extends Element {
         return turnright;
     }
     
+    
     /**
      * update the status of the ship
      * @param g 
@@ -98,6 +101,8 @@ public class Ship extends Element {
     @Override
     public void refresh(Game g) {
         super.refresh(g);
+        takeCareOfImpact(g);
+        
         if (getAcceleration()) {
             speed.sum(new Vector(rotation).adjust(THRUST));
             
@@ -106,7 +111,7 @@ public class Ship extends Element {
             }
         }
         if (speed.getSquaredLength() != 0.0) {
-            speed.adjust(0.002);
+            speed.adjust(0.9);
         }
         
         if (getTurnRight()) {
@@ -114,6 +119,12 @@ public class Ship extends Element {
         }
         if (getTurnLeft()) {
             turn(-ROTATION_SPEED);
+        }
+        
+        if (getShoot()) {
+            Bullet b = new Bullet(this, rotation);
+            g.list.add(b);
+            
         }
     }
     
@@ -132,4 +143,19 @@ public class Ship extends Element {
 	g.drawLine(-10, 8, 10, 0);
 	g.drawLine(-6, -6, -6, 6);
     }
-}
+    
+    @Override
+    public void takeCareOfImpact(Game game) {
+        int i = 1;
+        while(i < game.list.size()) {
+            Element e = game.list.get(i);
+            double eXposition = game.list.get(i).position.x;
+            double eYposition = game.list.get(i).position.y;
+            if (e.type != 1 && (-radius <= position.x - eXposition && position.x - eXposition <= radius) && (-radius <= position.y - eYposition && position.y - eYposition <= radius)) {
+                setStatusToFalse();
+                break;
+            }
+            i++;
+        }
+    }
+} 

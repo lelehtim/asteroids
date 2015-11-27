@@ -12,18 +12,39 @@ package asteroids.asteroids;
 import Game.Game;
 import java.awt.Graphics2D;
 
+/**
+ * bullet represents the bullets fired by the ship
+ */
+
 public class Bullet extends Element {
     static final double BULLETSPEED = 10;
     static final int MAX_TIME = 100;  // max number of the cycles a bullet can exist
+    private int time;
     
     public Bullet(Element ship, double direction) { // direction is the direction where the ship is pointing
         super(new Vector(ship.getPosition().x,ship.getPosition().y), new Vector(direction).adjust(BULLETSPEED), 1.0);
-                
+        time = 0;
+        this.type = 1;
+    }
+    
+    @Override
+    public void refresh(Game g) {
+        super.refresh(g);
+        if (time >= MAX_TIME) {
+            this.setStatusToFalse();
+        }
+        
+        
     }
     
     @Override
     public void draw(Graphics2D g, Game game) {
-        g.drawOval((int)this.position.x,(int)this.position.y,5,5);
+        g.drawOval(-1,-1,3,3);
+    }
+
+    @Override
+    public void takeCareOfImpact(Game game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
