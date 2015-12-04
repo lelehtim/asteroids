@@ -25,7 +25,6 @@ import java.util.Random;
 
 public class Game extends JFrame {
     
-    //public Iterator<Element> iter;
     public ArrayList<Element> list;
     Graphics2D g;
     Visible v;
@@ -33,6 +32,11 @@ public class Game extends JFrame {
     Listener l;
     Timer timer;
     public int cyckleNum;
+    public Boolean run;
+    public Boolean newRound;
+    public int numOfCycklesInRound;
+    public int score;
+    public int roundCount;
     
     public Game() {
         setLayout(new BorderLayout());
@@ -46,16 +50,21 @@ public class Game extends JFrame {
         setLocationRelativeTo(null);
         setBackground(Color.BLACK);
         
+        
         ship = new Ship();
         ship.setStatusToTrue();
         list = new ArrayList();
         list.add(ship);
         l = new Listener(ship);
         timer = new Timer();
+        newRound = false;
         
         setVisible(true);
         
         cyckleNum = 0;
+        score = 0;
+        roundCount = 1;
+        run = true;
         
         this.addKeyListener(l);
     }
@@ -67,12 +76,15 @@ public class Game extends JFrame {
     
     public void run() {
         while(true) {
+            numOfCycklesInRound = 400;
             long begin = System.nanoTime();
             timer.update();
+            if (ship.status) {
             for(int i = 0; i < 5 && timer.cyckleHasElapsed(); i++) {
 		refresh();
             }
             v.repaint();
+            }
             
             // (1000000000.0 / 60) is the time that one frame should take
             // difference is the time left in a frame
@@ -87,10 +99,23 @@ public class Game extends JFrame {
                 }
             }
             cyckleNum++;
-            if (!ship.status) {
-                break;
+            if (ship.getreStart()) {
+            break;
+        }
+            if (cyckleNum % numOfCycklesInRound == 0) {
+                System.out.println("new round");
+                cyckleNum = 0;
+                //newRound = true;
+                roundCount++;
+                numOfCycklesInRound += 200;
             }
         }
+        reStart();
+    }
+    
+    public void reStart() {
+        Game g = new Game();
+        g.run();
     }
     
     
@@ -103,9 +128,13 @@ public class Game extends JFrame {
     
     public void refresh() {
         int i = 0;
-        if (cyckleNum % 100 == 0) {
-            Asteroid a = new Asteroid(new Random());
-            list.add(a);
+        int j = 0;
+        if (/*!newRound && */cyckleNum % 100 == 0) {
+            while (roundCount > j) {
+                Asteroid a = new Asteroid(new Random());
+                list.add(a);
+                j++;
+            }
         }
         while (i < list.size()) {
             list.get(i).refresh(this);

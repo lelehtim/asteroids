@@ -17,8 +17,8 @@ import java.awt.Graphics2D;
  */
 
 public class Bullet extends Element {
-    static final double BULLETSPEED = 10;
-    static final int MAX_TIME = 100;  // max number of the cycles a bullet can exist
+    static final double BULLETSPEED = 6;
+    static final int MAX_TIME = 50;  // max number of the cycles a bullet can exist
     private int time;
     
     public Bullet(Element ship, double direction) { // direction is the direction where the ship is pointing
@@ -33,7 +33,7 @@ public class Bullet extends Element {
         if (time >= MAX_TIME) {
             this.setStatusToFalse();
         }
-        
+        time++;
         
     }
     
@@ -44,7 +44,7 @@ public class Bullet extends Element {
 
     @Override
     public void takeCareOfImpact(Game game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setStatusToFalse();
     }
     
     

@@ -10,8 +10,11 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import asteroids.asteroids.*;
+import java.awt.BorderLayout;
 import java.awt.geom.AffineTransform;
 import java.awt.RenderingHints;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -49,6 +52,7 @@ public class Visible extends JPanel {
             i++;
         }
         
+       paintScore(g);
     }
     
     /**
@@ -63,5 +67,13 @@ public class Visible extends JPanel {
         g.translate(x, y);
         g.rotate(e.getRotation());
         e.draw(g, game);
+    }
+    /**
+     * converts the integer score to a string and paints it on the window
+     * @param g
+     */
+    public void paintScore(Graphics2D g) {
+        String score = Integer.toString(game.score);
+        g.drawString("Score: " + score, 10, 10);
     }
 }

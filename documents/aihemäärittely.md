@@ -1,4 +1,4 @@
-Aihe: asteroids peli. Alus liikkuu nuolinäppäimillä ja ampuu välilyönnistä. Tavoitteena tuhota mahdollisimman paljon asteroideja jotka lähestyvät alusta. Peli päättyy kun alukseen osuu 3 asteroidia.
+Aihe: asteroids peli. Alus liikkuu nuolinäppäimillä ja ampuu välilyönnistä. Tavoitteena tuhota mahdollisimman monta asteroidia ennen pelin päättymistä. Asteroidien määrä lisääntyy pelin edetessä. Peli päättyy kun alukseen osuu asteroidi.
 
 Käyttäjät: Pelaaja.
 

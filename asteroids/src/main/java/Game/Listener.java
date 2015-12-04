@@ -49,6 +49,10 @@ public class Listener extends KeyAdapter {
                 ship.shoot(true);
                 break;
                 
+            case KeyEvent.VK_R:
+                ship.reStart(true);
+                break;
+                
         }
     }
     
@@ -75,6 +79,9 @@ public class Listener extends KeyAdapter {
             case KeyEvent.VK_SPACE:
                 ship.shoot(false);
                 break;
+                
+            case KeyEvent.VK_R:
+                ship.reStart(false);
         }
     }
     

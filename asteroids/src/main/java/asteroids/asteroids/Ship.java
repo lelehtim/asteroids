@@ -25,7 +25,8 @@ public class Ship extends Element {
     private boolean turnright;
     private boolean accelerate;
     private boolean shoot;
-    private boolean hasBeenShot;
+    public boolean reStart;
+    public int shots;
     
     
     public Ship() {
@@ -35,9 +36,14 @@ public class Ship extends Element {
         turnright = false;
         accelerate = false;
         shoot = false;
-        hasBeenShot = false;
+        reStart = false;
         this.type = 3;
+        shots = 0;
         
+    }
+    
+    public boolean getreStart() {
+        return reStart;
     }
     
     
@@ -48,6 +54,10 @@ public class Ship extends Element {
     
     public void accelerate(Boolean b) {
         accelerate = b;
+    }
+    
+    public void reStart(Boolean b) {
+        reStart = true;
     }
     
     /**
@@ -102,6 +112,7 @@ public class Ship extends Element {
     public void refresh(Game g) {
         super.refresh(g);
         takeCareOfImpact(g);
+        int i = 0;
         
         if (getAcceleration()) {
             speed.sum(new Vector(rotation).adjust(THRUST));
@@ -124,7 +135,14 @@ public class Ship extends Element {
         if (getShoot()) {
             Bullet b = new Bullet(this, rotation);
             g.list.add(b);
-            
+            /*
+             ables the ship to shoot only five bullets at a time
+            */
+            if (shots > 4) {
+                this.shoot(false);
+                shots = 0;
+            }
+            shots++;
         }
     }
     
