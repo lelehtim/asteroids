@@ -42,6 +42,12 @@ public class Ship extends Element {
         
     }
     
+    public void initialize() {
+        this.rotation = ROTATION;
+        this.position.x = 300.0;
+        this.position.y = 300.0;
+    }
+    
     public boolean getreStart() {
         return reStart;
     }
@@ -57,11 +63,11 @@ public class Ship extends Element {
     }
     
     public void reStart(Boolean b) {
-        reStart = true;
+        reStart = b;
     }
     
     /**
-     * change value of turnleht to b
+     * change value of turnleft to b
      * @param b 
      */
     
@@ -154,9 +160,6 @@ public class Ship extends Element {
     
     @Override
     public void draw(Graphics2D g, Game game) {
-//        int x[]={300,310,290};
-//        int y[]={290,310,310};
-//        g.drawPolygon(x,y,3);
         g.drawLine(-10, -8, 10, 0);
 	g.drawLine(-10, 8, 10, 0);
 	g.drawLine(-6, -6, -6, 6);

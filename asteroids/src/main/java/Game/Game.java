@@ -71,7 +71,7 @@ public class Game extends JFrame {
     
     /**
      * run method updates the game int the main loop by calling the refresh method. If the game is starting to delay
-     * the refresh method is callde more than once per cyckle in order to catch up
+     * the refresh method is called more than once per cyckle in order to catch up
      */
     
     public void run() {
@@ -80,10 +80,10 @@ public class Game extends JFrame {
             long begin = System.nanoTime();
             timer.update();
             if (ship.status) {
-            for(int i = 0; i < 5 && timer.cyckleHasElapsed(); i++) {
+                for(int i = 0; i < 5 && timer.cyckleHasElapsed(); i++) {
 		refresh();
-            }
-            v.repaint();
+                }
+                v.repaint();
             }
             
             // (1000000000.0 / 60) is the time that one frame should take
@@ -103,7 +103,6 @@ public class Game extends JFrame {
             break;
         }
             if (cyckleNum % numOfCycklesInRound == 0) {
-                System.out.println("new round");
                 cyckleNum = 0;
                 //newRound = true;
                 roundCount++;
@@ -114,8 +113,12 @@ public class Game extends JFrame {
     }
     
     public void reStart() {
-        Game g = new Game();
-        g.run();
+        this.list.clear();
+        ship.initialize();
+        list.add(ship);
+        score = 0;
+        this.run();
+        
     }
     
     

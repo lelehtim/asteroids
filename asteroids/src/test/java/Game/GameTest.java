@@ -28,5 +28,11 @@ public class GameTest {
         
     }
     
+//    @Test
+//    public void testreStart() {
+//        game.reStart();
+//        
+//        assertEquals(-2*Math.PI,game.ship.rotation);
+//    }
     
 }

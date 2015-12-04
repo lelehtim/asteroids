@@ -42,9 +42,11 @@
              <configuration>
         <targetClasses>
             <param>asteroids.asteroids*</param>
+            <param>Game*</param>
         </targetClasses>
         <targetTests>
             <param>asteroids.asteroids*</param>
+            <param>Game*</param>
         </targetTests>
     </configuration>
         </plugin>
