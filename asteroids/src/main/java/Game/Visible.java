@@ -10,11 +10,8 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import asteroids.asteroids.*;
-import java.awt.BorderLayout;
 import java.awt.geom.AffineTransform;
 import java.awt.RenderingHints;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 /**
  *
@@ -26,6 +23,7 @@ import javax.swing.JTextField;
  */
 public class Visible extends JPanel {
     
+    /** the game instance*/
     Game game;
     
     public Visible(Game game) {

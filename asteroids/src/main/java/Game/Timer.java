@@ -14,9 +14,16 @@ package Game;
  */
 public class Timer {
     
+    /**stores the current time*/
     private long time1;
-    private static final float TIME_PER_CYCKLE = (1.0f/60)*1000;;
+    
+    /** time that one cyckle should take*/
+    private static final float TIME_PER_CYCKLE = (1.0f/60)*1000;
+    
+    /** the number of elapsed cyckles*/
     private int numOfCyckles;
+    
+    /**time left untill the next cyckle*/
     private float timeTilNext;
     
     public Timer() {

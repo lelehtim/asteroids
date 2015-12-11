@@ -42,7 +42,7 @@ public class ShipTest {
         b = new Bullet(s, s.getRotation());
         
         int j = 0;
-        while(j<1000) {
+        while(j<100) {
             Asteroid a = new Asteroid(rand);
             g.list.add(a);
             j++;

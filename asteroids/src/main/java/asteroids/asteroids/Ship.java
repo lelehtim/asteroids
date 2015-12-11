@@ -17,15 +17,35 @@ import java.awt.Graphics2D;
  */
 
 public class Ship extends Element {
+    
+    /** the rotation of a new ship*/
     static final double ROTATION = -Math.PI / 2.0;
+    
+    /** standard rotation speed*/
     static final double ROTATION_SPEED = 0.1;
+    
+    /** maximum speed of the ship*/
     static final double MAXVELOCITY = 8.0;
+    
+    /** ships thrust*/
     static final double THRUST = 0.5;
+    
+    /** if true ship will turn left*/
     private boolean turnleft;
+    
+    /** if true ship will turn right*/
     private boolean turnright;
+    
+    /** if true ship will move straight*/
     private boolean accelerate;
+    
+    /** if true a new bullet is created*/
     private boolean shoot;
+    
+    /** if true game will be restarted*/
     public boolean reStart;
+    
+    /** number of consecutive shots fired*/
     public int shots;
     
     
@@ -42,8 +62,13 @@ public class Ship extends Element {
         
     }
     
+    /**
+     * sets the coordinates and the direction of the ship to its default values
+     */
+    
     public void initialize() {
         this.rotation = ROTATION;
+        this.status = true;
         this.position.x = 300.0;
         this.position.y = 300.0;
     }
@@ -54,20 +79,24 @@ public class Ship extends Element {
     
     
     /**
-     * change the value of accelerate to b
+     * changes the value of accelerate to b
      * @param b 
      */
     
     public void accelerate(Boolean b) {
         accelerate = b;
     }
+    /**
+     * changes the value of reStart to b
+     * @param b 
+     */
     
     public void reStart(Boolean b) {
         reStart = b;
     }
     
     /**
-     * change value of turnleft to b
+     * changes the value of turnleft to b
      * @param b 
      */
     
@@ -76,7 +105,7 @@ public class Ship extends Element {
     }
     
     /**
-     * change value of turnright to b
+     * changes the value of turnright to b
      * @param b 
      */
     
@@ -85,7 +114,7 @@ public class Ship extends Element {
     }
     
     /**
-     * change value of shoot to b
+     * changes the value of shoot to b
      * @param b 
      */
     
@@ -118,7 +147,6 @@ public class Ship extends Element {
     public void refresh(Game g) {
         super.refresh(g);
         takeCareOfImpact(g);
-        int i = 0;
         
         if (getAcceleration()) {
             speed.sum(new Vector(rotation).adjust(THRUST));

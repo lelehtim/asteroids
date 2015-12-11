@@ -25,17 +25,34 @@ import java.util.Random;
 
 public class Game extends JFrame {
     
+    /** list of the element in the game*/
     public ArrayList<Element> list;
+    
+    /** graphics object*/
     Graphics2D g;
-    Visible v;
+    
+    /** the visible instance used to display the game to the player*/
+     public Visible v;
+    
+    /** ship instance*/
     public Ship ship;
+    
+    /** listener used to taking care of the commands given by the player*/
     Listener l;
+    
+    /** timer is used to keep track of time in the game*/
     Timer timer;
+    
+    /** number of times the loop has elapsed*/
     public int cyckleNum;
-    public Boolean run;
-    public Boolean newRound;
+    
+    /** number of a cyckles in a current round*/
     public int numOfCycklesInRound;
+    
+    /** players score*/
     public int score;
+    
+    /** ordinal number of the current round*/
     public int roundCount;
     
     public Game() {
@@ -57,14 +74,12 @@ public class Game extends JFrame {
         list.add(ship);
         l = new Listener(ship);
         timer = new Timer();
-        newRound = false;
         
         setVisible(true);
         
         cyckleNum = 0;
         score = 0;
         roundCount = 1;
-        run = true;
         
         this.addKeyListener(l);
     }
@@ -86,8 +101,8 @@ public class Game extends JFrame {
                 v.repaint();
             }
             
-            // (1000000000.0 / 60) is the time that one frame should take
-            // difference is the time left in a frame
+            /* (1000000000.0 / 60) is the time that one frame should take
+             difference is the time left in a frame*/
             long difference = (long)(1000000000.0 / 60) - (System.nanoTime() - begin);
             
             // if difference > 0 sleep until it is time to continue
@@ -100,11 +115,11 @@ public class Game extends JFrame {
             }
             cyckleNum++;
             if (ship.getreStart()) {
-            break;
-        }
+                break;
+            }
+            
             if (cyckleNum % numOfCycklesInRound == 0) {
                 cyckleNum = 0;
-                //newRound = true;
                 roundCount++;
                 numOfCycklesInRound += 200;
             }
@@ -132,7 +147,7 @@ public class Game extends JFrame {
     public void refresh() {
         int i = 0;
         int j = 0;
-        if (/*!newRound && */cyckleNum % 100 == 0) {
+        if (cyckleNum % 100 == 0) {
             while (roundCount > j) {
                 Asteroid a = new Asteroid(new Random());
                 list.add(a);
@@ -141,6 +156,9 @@ public class Game extends JFrame {
         }
         while (i < list.size()) {
             list.get(i).refresh(this);
+            if (!list.get(i).status && list.get(i).type == 3) {
+                return;
+            }
             i++;
         }
         Iterator<Element> iterator = list.iterator();

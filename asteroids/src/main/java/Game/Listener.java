@@ -19,6 +19,7 @@ import asteroids.asteroids.Ship;
  */
 public class Listener extends KeyAdapter {
     
+    /** ship is the element that is being listened*/
     Ship ship;
     
     public Listener(Ship ship) {

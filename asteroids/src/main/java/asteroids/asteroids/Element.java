@@ -18,11 +18,22 @@ import java.awt.Graphics2D;
 
 public abstract class Element {
     
+    /** is the measure of the direction*/
     public double rotation;
-    Vector speed; // coordinates to be added to the element after a rotation in the game loop
-    Vector position; // initial position of the element
-    public double radius; // within this radius the element experiences impact
-    public boolean status; // if status is false, element needs to be removed
+    
+    /** vector representing the speed of an element*/
+    Vector speed;
+    
+    //* vector representing the position of the element in the game*/
+    Vector position;
+    
+    /**within this radius the element experiences impact*/
+    public double radius;
+    
+    /**if status is false, element needs to be removed*/
+    public boolean status;
+    
+    /** each element has a unique type*/
     public int type;
     
     public Element(Vector position, Vector speed, double radius) {

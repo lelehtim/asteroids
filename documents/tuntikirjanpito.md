@@ -27,3 +27,12 @@
 
 27.11
 6h koodausta
+
+30.11
+6h koodausta
+
+4.12
+4h koodausta
+
+11.12
+kirjoitettu rakennekuvaus

@@ -17,11 +17,16 @@ import java.awt.Graphics2D;
  */
 
 public class Bullet extends Element {
+    /** velocity of the bullet*/
     static final double BULLETSPEED = 6;
-    static final int MAX_TIME = 50;  // max number of the cycles a bullet can exist
+    
+    /** max number of the cycles a bullet can exist*/
+    static final int MAX_TIME = 50;
+    
+    /** number of cyckles*/
     private int time;
     
-    public Bullet(Element ship, double direction) { // direction is the direction where the ship is pointing
+    public Bullet(Element ship, double direction) { 
         super(new Vector(ship.getPosition().x,ship.getPosition().y), new Vector(direction).adjust(BULLETSPEED), 1.0);
         time = 0;
         this.type = 1;

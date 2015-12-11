@@ -16,9 +16,11 @@ import java.util.Random;
 
 public class Vector {
     
-    public double x; // x coordinate of a vector
+    /** x coordinate of a vector*/
+    public double x;
     
-    public double y; // y coordinate of vector
+    /** y coordinate of a vector*/
+    public double y;
     
     public Vector(double x, double y){
         this.x = x;
