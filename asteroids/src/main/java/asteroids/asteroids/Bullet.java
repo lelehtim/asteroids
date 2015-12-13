@@ -26,6 +26,11 @@ public class Bullet extends Element {
     /** number of cyckles*/
     private int time;
     
+    /**
+     *
+     * @param ship
+     * @param direction
+     */
     public Bullet(Element ship, double direction) { 
         super(new Vector(ship.getPosition().x,ship.getPosition().y), new Vector(direction).adjust(BULLETSPEED), 1.0);
         time = 0;

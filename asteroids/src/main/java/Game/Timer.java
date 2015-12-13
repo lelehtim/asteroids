@@ -26,6 +26,9 @@ public class Timer {
     /**time left untill the next cyckle*/
     private float timeTilNext;
     
+    /**
+     *
+     */
     public Timer() {
         numOfCyckles = 0;
         time1 = getTime();
@@ -62,6 +65,10 @@ public class Timer {
         return false;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getNumOfCyckles() {
         return numOfCyckles;
     }

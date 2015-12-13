@@ -22,6 +22,10 @@ public class Asteroid extends Element{
     /** velocity of the asteroid*/
     private static final double VELOCITY = 3.0;
     
+    /**
+     *
+     * @param rand
+     */
     public Asteroid(Random rand) {
         super(new Vector(rand), new Vector(10*rand.nextDouble()),20.0);
         speed.adjust(VELOCITY);

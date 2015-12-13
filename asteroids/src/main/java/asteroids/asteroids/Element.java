@@ -36,6 +36,12 @@ public abstract class Element {
     /** each element has a unique type*/
     public int type;
     
+    /**
+     *
+     * @param position
+     * @param speed
+     * @param radius
+     */
     public Element(Vector position, Vector speed, double radius) {
         this.position = position;
         this.speed = speed;
@@ -44,22 +50,40 @@ public abstract class Element {
         this.status = true;
     }
     
+    /**
+     *
+     */
     public void setStatusToFalse() {
         status = false;
     }
     
+    /**
+     *
+     */
     public void setStatusToTrue() {
         status = true;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean getStatus() {
         return status;
     }
     
+    /**
+     *
+     * @return
+     */
     public Vector getPosition() {
         return position;
     }
     
+    /**
+     *
+     * @return
+     */
     public Vector getSpeed() {
         return speed;
     }
@@ -88,6 +112,10 @@ public abstract class Element {
         
     }
     
+    /**
+     *
+     * @return
+     */
     public double getRadius() {
         return radius;
     }
@@ -101,6 +129,10 @@ public abstract class Element {
         this.rotation += a;
     }
     
+    /**
+     *
+     * @return
+     */
     public double getRotation() {
         return this.rotation;
     }

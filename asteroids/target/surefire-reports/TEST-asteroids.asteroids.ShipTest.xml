@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="asteroids.asteroids.ShipTest" time="0.12" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="asteroids.asteroids.ShipTest" time="0.11" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_20\jre\bin"/>
@@ -61,11 +61,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="asteroids.asteroids.ShipTest" name="testAccelerate" time="0.02"/>
+  <testcase classname="asteroids.asteroids.ShipTest" name="testAccelerate" time="0"/>
   <testcase classname="asteroids.asteroids.ShipTest" name="testShoot" time="0.01"/>
-  <testcase classname="asteroids.asteroids.ShipTest" name="testTakeCareOfImpactWithAsteroid" time="0.02"/>
+  <testcase classname="asteroids.asteroids.ShipTest" name="testTakeCareOfImpactWithAsteroid" time="0.01"/>
   <testcase classname="asteroids.asteroids.ShipTest" name="testTurnRight" time="0.02"/>
-  <testcase classname="asteroids.asteroids.ShipTest" name="testRefresh" time="0.01"/>
-  <testcase classname="asteroids.asteroids.ShipTest" name="testTakeCareOfImpactWithBullet" time="0.01"/>
-  <testcase classname="asteroids.asteroids.ShipTest" name="testTurnLeft" time="0.03"/>
+  <testcase classname="asteroids.asteroids.ShipTest" name="testRefresh" time="0.03"/>
+  <testcase classname="asteroids.asteroids.ShipTest" name="testTakeCareOfImpactWithBullet" time="0"/>
+  <testcase classname="asteroids.asteroids.ShipTest" name="testTurnLeft" time="0.02"/>
 </testsuite>

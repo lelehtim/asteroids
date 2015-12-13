@@ -22,16 +22,29 @@ public class Vector {
     /** y coordinate of a vector*/
     public double y;
     
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public Vector(double x, double y){
         this.x = x;
         this.y = y;
     }
     
+    /**
+     *
+     * @param direction
+     */
     public Vector(double direction) {
         this.x = Math.cos(direction);
         this.y = Math.sin(direction);
     }
     
+    /**
+     *
+     * @param rand
+     */
     public Vector(Random rand) {
         double value = rand.nextDouble();
         if (value < 0.25) {
@@ -76,14 +89,28 @@ public class Vector {
         return this;
     }
     
+    /**
+     *
+     * @param v
+     * @return
+     */
     public double getxCoordinate(Vector v) {
         return v.x;
     }
     
+    /**
+     *
+     * @param v
+     * @return
+     */
     public double getyCoordinate(Vector v) {
         return v.y;
     }
     
+    /**
+     *
+     * @return
+     */
     public double getSquaredLength() {
         return (x*x + y*y);
     }

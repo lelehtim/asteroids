@@ -22,6 +22,10 @@ public class Listener extends KeyAdapter {
     /** ship is the element that is being listened*/
     Ship ship;
     
+    /**
+     *
+     * @param ship
+     */
     public Listener(Ship ship) {
         this.ship = ship;
     }

@@ -55,6 +55,9 @@ public class Game extends JFrame {
     /** ordinal number of the current round*/
     public int roundCount;
     
+    /**
+     *
+     */
     public Game() {
         setLayout(new BorderLayout());
         setResizable(false);
@@ -127,6 +130,9 @@ public class Game extends JFrame {
         reStart();
     }
     
+    /**
+     *
+     */
     public void reStart() {
         this.list.clear();
         ship.initialize();

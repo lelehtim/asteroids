@@ -26,6 +26,10 @@ public class Visible extends JPanel {
     /** the game instance*/
     Game game;
     
+    /**
+     *
+     * @param game
+     */
     public Visible(Game game) {
         super.setBackground(Color.BLACK);
         this.game = game;

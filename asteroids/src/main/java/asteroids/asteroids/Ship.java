@@ -48,7 +48,9 @@ public class Ship extends Element {
     /** number of consecutive shots fired*/
     public int shots;
     
-    
+    /**
+     *
+     */
     public Ship() {
         super(new Vector(300.0,300.0), new Vector(0.0,0.0),10.0);
         this.rotation = ROTATION;
@@ -73,6 +75,10 @@ public class Ship extends Element {
         this.position.y = 300.0;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean getreStart() {
         return reStart;
     }
@@ -122,17 +128,34 @@ public class Ship extends Element {
         shoot = b;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean getAcceleration() {
         return accelerate;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean getShoot() {
         return shoot;
     }
+
+    /**
+     *
+     * @return
+     */
     public boolean getTurnLeft() {
         return turnleft;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean getTurnRight() {
         return turnright;
     }
