@@ -1,0 +1,7 @@
+Testausdokumentaatio
+
+Testejä ei ole tehty Game pakkauksen luokille Visible, Game eikä Listener. Syy tähän on, että luokassa Visible Listener on ainoastaan OVerride metodeja ja Visible luokan metodit, jotka eivät ole Override metodeja, koostuvat Javan valmiista metodeista. Game luokka on jätetty kokonaa testaamatta, sillä järkevien testien kirjoittaminen metodeille run ja refresh ei useiden yritysten jälkeen onnistunut. Metodien toiminta kuitenkin vaikuttaa täysin oikealta, sillä peli toimii juuri niinkuin on ollut tarkoitus.
+
+Testejä ei myöskään ole kirjoitettu luokille Asteroid eikä Bullet. Asteroid luokalle yritin testata metodia takeCareOfImpact mutta en onnistunut saamaan siitä järkevää. Ongelmia aiheutti Asteroid luokan konstruktori, sillä metodin järkevän testaamisen kannalta asteroidien satunnainen paikka niiden luontivaiheessa ei sallinut asetelmaa, jossa kahdelle eri elementille olisi annettu samat koordinaatit. Metodin testaus vaati myös Game luokan refresh metodin kutsumista, joka itsessään aiheuttaa asteroid elementin takeCareOfImpact metodin kutsua. Näin ollen en saanut luotua testiä.
+
+Testasin takeCareOfImpact metodin toimivuutta vain tarkastelemalla listaa, joka pitää kirjaa pelissä olevista elementeistä. Metodi asettaa asteroid elementille arvon, joka kertoo, että asteroidi täytyy poistaa pelistä. Näin varmistuin, että metodi varmasti toimii oikein.
