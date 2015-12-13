@@ -1,0 +1,10 @@
+Game\Listener.class
+asteroids\asteroids\Element.class
+asteroids\asteroids\Ship.class
+asteroids\asteroids\Asteroid.class
+asteroids\asteroids\Vector.class
+asteroids\asteroids\main.class
+Game\Visible.class
+Game\Timer.class
+Game\Game.class
+asteroids\asteroids\Bullet.class
